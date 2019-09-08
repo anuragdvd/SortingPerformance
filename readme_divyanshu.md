@@ -1,8 +1,5 @@
 Welcome to humblefool club
 
-
-My Name is Divyanshu Singh 
-
 I was inntially assigned  to create a simple C program which sorts an array provided by the user, and prints the time taken by the algorithm along with printing the array itself.
 
 The Algorithm used was Bubble Sort.
@@ -11,3 +8,4 @@ Here the algorithm is not optimized for speed, it runs in the most naive form.
 
 Thankyou.
 suggestions and corrections are most welcome and appreciated.
+Divyanshu Singh
