@@ -3,7 +3,7 @@
 int quicksort(int [],int,int);
 int main()
 {
-      int number;
+      int number; // Takes the value of number of integer user want to enter
     scanf("%d",&number);
     int array[number];
     for(int i=0;i<number;i++){
@@ -19,7 +19,7 @@ int main()
     }
     printf("\n%lf",time_spent);
     return 0;
-}
+} 
 
 int quicksort(int array[],int first,int last)
 {
