@@ -11,12 +11,12 @@ int main()
     }
     clock_t start = clock();
     quicksort(array,0,number-1);
+    clock_t end = clock();
+    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
     printf("The Sorted Order is: ");
     for(int i=0;i<number;i++){
         printf(" %d",array[i]);
     }
-    clock_t end = clock();
-    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
     printf("\n%lf",time_spent);
     return 0;
 }
