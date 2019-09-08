@@ -1,17 +1,23 @@
 #include<stdio.h>
+#include<time.h>
 int quicksort(int [],int,int);
 int main()
 {
-    int number;
+      int number;
     scanf("%d",&number);
     int array[number];
     for(int i=0;i<number;i++){
         scanf("%d",&array[i]);
     }
+    clock_t start = clock();
     quicksort(array,0,number-1);
     printf("The Sorted Order is: ");
-    for(int i=0;i<number;i++)
+    for(int i=0;i<number;i++){
         printf(" %d",array[i]);
+    }
+    clock_t end = clock();
+    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
+    printf("\n%lf",time_spent);
     return 0;
 }
 
