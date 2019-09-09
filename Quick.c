@@ -17,7 +17,7 @@ int main()
     for(int i=0;i<number;i++){
         printf(" %d",array[i]);
     }
-    printf("\n%lf",time_spent);
+    printf("\nTime taken to sort the array = %lf",time_spent);
     return 0;
 } 
 
