@@ -1,27 +1,23 @@
 #include<stdio.h>
 #include<time.h>
-int quicksort(int [],int,int);
-int main()
+#include "quicksort.h"
+#include "val.h"
+
+int qswap=0,qcomp=0;
+
+struct val quick(int array[],int n)
 {
-      int number; // Takes the value of number of integer user want to enter
-    scanf("%d",&number);
-    int array[number];
-    for(int i=0;i<number;i++){
-        scanf("%d",&array[i]);
-    }
     clock_t start = clock();
-    quicksort(array,0,number-1);
+    quicksort(array,0,n-1);
     clock_t end = clock();
     double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
-    printf("The Sorted Order is: ");
-    for(int i=0;i<number;i++){
-        printf(" %d",array[i]);
-    }
-    printf("\nTime taken to sort the array = %lf",time_spent);
-    return 0;
-} 
+    struct val qres;
+    qres.time=time_spent; qres.swap=qswap; qres.comp=qcomp;
 
-int quicksort(int array[],int first,int last)
+    return qres;
+}
+
+void quicksort(int array[],int first,int last)
 {
     int i,j,q,swap_count=0,temp;
     if(first<last){
@@ -29,6 +25,7 @@ int quicksort(int array[],int first,int last)
         i=first;
         j=last;
         while(i<j){
+                qcomp++;
             while(array[i]<=array[q] && i<last)
                 i++;
             while(array[j]>array[q])
@@ -37,7 +34,7 @@ int quicksort(int array[],int first,int last)
                 temp=array[i];
                 array[i]=array[j];
                 array[j]=temp;
-                swap_count++;
+                qswap++;
             }
         }
         temp=array[q];
