@@ -3,8 +3,11 @@
 #include<time.h>
 #include<stdlib.h>
 #include "mergesort.h"
+#include "val.h"
+
 
 int s=0; int c=0;
+
 
 void merge(int arr[], int l, int m, int r)
 {
