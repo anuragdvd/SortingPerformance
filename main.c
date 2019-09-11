@@ -119,8 +119,8 @@ int main()
                 default: system("cls"); printf("Wrong Choice");
             }
             break;
-            default: system("cls");
-              printf("Wrong Choice");
+    default: system("cls");
+      printf("Wrong Choice");
 
 
     }
