@@ -21,7 +21,7 @@ int main()
     int i;
     switch(val) 
     {
-    case 1: system("cls");
+    case 1: 
             printf ("Enter number of elements");
             scanf("%d",&n);
             printf("\n \n Enter elements of array \n");
@@ -29,9 +29,9 @@ int main()
             for(int i=0;i<n;i++)
                 scanf("%d",&a[i]);      // filling elements
             fflush(stdin);  // making sure that buffer is empty
-            system("cls");  // clearing screen
             printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
-            char ch; scanf("%c",&ch);
+            char c; scanf("%c",&c);
+            char ch; scanf("%c",&ch); 
             switch(ch)
             {
                 case 'B': res=bubblesort(a,n);  // Bubble Sort 
@@ -49,13 +49,13 @@ int main()
                 case 'S': res=selectionsort(a,n);
                           fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
-                default: system("cls"); printf("Wrong Choice"); // Wrong choice by user
+                default: printf("Wrong Choice"); // Wrong choice by user
             }
             break;
     case 2:
             fflush(stdin);      // Clearing input buffer
-            system("cls");      // Clearing Screen 
             printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
+            char c; scanf("%c",&c);
             char che; scanf("%c",&che);     // Asking user for choice
             switch(che)
             {
@@ -116,10 +116,10 @@ int main()
                           i*=10;
                           }
                            break;
-                default: system("cls"); printf("Wrong Choice");
+                default: printf("Wrong Choice");
             }
             break;
-    default: system("cls");
+    default: 
       printf("Wrong Choice");
 
 
