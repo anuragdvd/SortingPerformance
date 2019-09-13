@@ -6,10 +6,11 @@ Performance can be measured by parameters such as-
 - Number of comparisons (for comparison-based sorting algorithms only).
 - Number of read and write operations.
 
-We will comparing the given sorting algorithm-
--Bubble Sort
--Merge Sort
--Selection Sort
--Insertion Sort
--Quick Sort
--Counting Sort
+We will comparing the given sorting algorithm -
+
+- Bubble Sort
+- Merge Sort
+- Selection Sort
+- Insertion Sort
+- Quick Sort
+- Counting Sort
