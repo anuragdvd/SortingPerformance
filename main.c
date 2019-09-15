@@ -81,7 +81,7 @@ int main()
                           break;
                         }
                 case 'Q':  i=10;
-                          while(i<100)
+                          while(i<10001)
                           {
                           int *a=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
@@ -94,7 +94,7 @@ int main()
                           }
                           break;
                 case 'M':  i=10;
-                          while(i!=100)
+                          while(i<10001)
                           {
                           int *a=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
@@ -106,7 +106,7 @@ int main()
                           }
                            break;
                 case 'C':  i=10;
-                          while(i!=100)
+                          while(i<10001)
                           {
                           int *a=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
@@ -118,7 +118,7 @@ int main()
                           }
                           break;
                 case 'S':  i=10;
-                          while(i!=100)
+                          while(i<10001)
                           {
                             int *a=(int*)malloc(i*sizeof(int));   // Creating array of size i
                             for(int k=0;k<i;k++)
