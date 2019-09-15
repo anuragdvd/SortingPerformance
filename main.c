@@ -74,7 +74,7 @@ int main()
                             for(int k=0;k<i;k++)
                               a[k]=rand() %100;              // Inserting random elements
                             struct val re=bubblesort(a,i);       // varriable to store result 
-                            fprintf(fptr,"For %d elements \n \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d \n",i,re.time,re.swap,re.comp);
+                            fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d \n\n",i,re.time,re.swap,re.comp);
                             i*=10;
                             free(a);
                           }
@@ -88,7 +88,7 @@ int main()
                             a[k]=rand()%i;                       // Inserting random elements
                           res=quick(a,i);                        // varriable to store result 
 
-                          fprintf(fptr,"For %d elements \n \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",i,res.time,res.swap,res.comp);
+                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                           i*=10;
                           free(a);
                           }
@@ -100,7 +100,7 @@ int main()
                           for(int k=0;k<i;k++)
                             a[k]=rand()%i;               // Inserting random elements
                           res=mergeSort(a,0,i-1);            // varriable to store result 
-                          fprintf(fptr,"For %d elements \n \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",i,res.time,res.swap,res.comp);
+                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                           i*=10;
                           free(a);
                           }
@@ -112,7 +112,7 @@ int main()
                           for(int k=0;k<i;k++)
                             a[k]=rand()%i;                 // Inserting random elements
                           res=countingsort(a,i);             // varriable to store result 
-                          fprintf(fptr,"For %d elements \n \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",i,res.time,res.swap,res.comp);
+                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                           i*=10;
                           free(a);
                           }
@@ -124,7 +124,7 @@ int main()
                             for(int k=0;k<i;k++)
                               a[k]=rand()%i;               // Inserting random elements
                             res=selectionsort(a,i);        // varriable to store result 
-                            fprintf(fptr,"For %d elements \n \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",i,res.time,res.swap,res.comp);
+                            fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                             i*=10;
                             free(a);
                           }
