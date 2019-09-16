@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<time.h>
 #include "val.h"
+#include "insertionheader.h"
 
 int com=0,swa=0;
 
