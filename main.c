@@ -7,6 +7,7 @@
 #include "selectionsort.c"
 #include "quicksort.c"
 #include "countingsort.c"
+#include "insertionsort.c"
 
 int main()
 {
@@ -37,8 +38,8 @@ int main()
             array=(int*)malloc(n*sizeof(int));     // creating user array of size n
             for(int i=0;i<n;i++)
                 scanf("%d",&array[i]);      // filling elements
-            fflush(stdin);  // making sure that buffer is empty
-            printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
+            //fflush(stdin);  // making sure that buffer is empty
+            printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n \n I -> InsertionSort \n");
             char c; scanf("%c",&c);
             char ch; scanf("%c",&ch);
             switch(ch)
@@ -58,12 +59,15 @@ int main()
                 case 'S': res=selectionsort(array,n);
                           printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
+                case 'I': res=Insertion(array,n);
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
+                          break;
                 default: printf("Wrong Choice"); // Wrong choice by user
             }
             break;
     case 2:
            // fflush(stdin);      // Clearing input buffer
-            printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
+            printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n \n I -> InsertionSort \n");
             char x; scanf("%c",&x);
             char che; scanf("%c",&che);     // Asking user for choice
 
@@ -142,7 +146,22 @@ int main()
                             for(int k=0;k<i;k++)
                               array[k]=rand()%i;               // Inserting random elements
                             res=selectionsort(array,i);        // varriable to store result
-                            printf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                            printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                            fprintf(swaptr,"%d,%d\n",i,res.swap);
+                            fprintf(compptr,"%d,%d\n",i,res.comp);
+                            fprintf(exeptr,"%d,%f\n",i,res.time);
+                            i+=10;
+                            free(array);
+                          }
+                           break;
+                case 'I' :   i=10;
+                          while(i<51)
+                          {
+                            int *array=(int*)malloc(i*sizeof(int));   // Creating array of size i
+                            for(int k=0;k<i;k++)
+                              array[k]=rand()%i;               // Inserting random elements
+                            res=Insertion(array,i);        // varriable to store result
+                            printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                             fprintf(swaptr,"%d,%d\n",i,res.swap);
                             fprintf(compptr,"%d,%d\n",i,res.comp);
                             fprintf(exeptr,"%d,%f\n",i,res.time);
