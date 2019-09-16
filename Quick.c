@@ -3,14 +3,14 @@
 #include "quicksort.h"
 #include "val.h"
 
-int qswap=0,qcomp=0;
+int qswap=0,qcomp=0; // qswap -> swap in Quick sort qcomp -> compare in quick sort
 
-struct val quick(int array[],int n)
+struct val quick(int array[],int n) //n is number of elements in array
 {
-    clock_t start = clock();
-    quicksort(array,0,n-1);
-    clock_t end = clock();
-    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
+    clock_t start = clock(); // clock start
+    quicksort(array,0,n-1); 
+    clock_t end = clock(); // clock ends
+    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);  // calculate CPU time used
     struct val qres;
     qres.time=time_spent; qres.swap=qswap; qres.comp=qcomp;
 
