@@ -1,13 +1,12 @@
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
-#include "merge.c"
-#include "bubblesort.c"
-#include "Selection.c"
-#include "Quick.c"
-#include "CountingSort.c"
 #include "val.h"
-
+#include "mergesort.c"
+#include "bubblesort.c"
+#include "selectionsort.c"
+#include "quicksort.c"
+#include "countingsort.c"
 
 int main()
 {
@@ -16,15 +15,22 @@ int main()
     scanf("%d",&val);
     int n;
     FILE *fptr;
-    fptr = fopen("out.txt","w");    // opening file to write output 
+    fptr = fopen("swapout.txt","w");    // opening file to write output
     fclose(fptr);
-    fptr=fopen("out.txt","a");
+    fptr = fopen("executionout.txt","w");    // opening file to write output
+    fclose(fptr);
+    fptr = fopen("compout.txt","w");    // opening file to write output
+    fclose(fptr);
+    FILE *swaptr,*compptr,*exeptr;
+    swaptr=fopen("swapout.txt","a");    // file to write swap data
+    compptr=fopen("compout.txt","a");   // file to write compare data
+    exeptr=fopen("executionout.txt","a");   // file to write execution data
     struct val res;
     int i;
     int *array;
-    switch(val) 
+    switch(val)
     {
-    case 1: 
+    case 1:
             printf ("Enter number of elements");
             scanf("%d",&n);
             printf("\n \n Enter elements of array \n");
@@ -34,98 +40,113 @@ int main()
             fflush(stdin);  // making sure that buffer is empty
             printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
             char c; scanf("%c",&c);
-            char ch; scanf("%c",&ch); 
+            char ch; scanf("%c",&ch);
             switch(ch)
             {
-                case 'B': res=bubblesort(array,n);  // Bubble Sort 
-                          fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp); // writing in file
+                case 'B': res=bubblesort(array,n);  // Bubble Sort
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp); // writing in file
                           break;
                 case 'Q': res=quick(array,n);
-                          fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
                 case 'M': res=mergeSort(array,0,n-1);
-                          fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
                 case 'C': res=countingsort(array,n);
-                          fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
                 case 'S': res=selectionsort(array,n);
-                          fprintf(fptr,"Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
+                          printf("Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d",res.time,res.swap,res.comp);  // writing in file
                           break;
                 default: printf("Wrong Choice"); // Wrong choice by user
             }
             break;
     case 2:
-            fflush(stdin);      // Clearing input buffer
+           // fflush(stdin);      // Clearing input buffer
             printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n");
             char x; scanf("%c",&x);
             char che; scanf("%c",&che);     // Asking user for choice
-            
+
             switch(che)
             {
                 case 'B':
                         {
                           i=10;
-                          while(i<10001)
+                          while(i<51)
                           {
                             printf("i = %d\n", i);
                             array=(int*)malloc(i*sizeof(int));      // Creating array of size i
                             printf("Success");
                             for(int k=0;k<i;k++)
                               array[k]=rand() %100;              // Inserting random elements
-                            struct val re=bubblesort(array,i);       // varriable to store result 
-                            fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d \n\n",i,re.time,re.swap,re.comp);
-                            i*=10;
+                            struct val re=bubblesort(array,i);       // varriable to store result
+                            printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d \n\n",i,re.time,re.swap,re.comp);
+                            fprintf(swaptr,"%d,%d\n",i,re.swap);
+                            fprintf(compptr,"%d,%d\n",i,re.comp);
+                            fprintf(exeptr,"%d,%f\n",i,re.time);
+                            i+=10;
                             free(array);
                           }
                           break;
                         }
                 case 'Q':  i=10;
-                          while(i<10001)
+                          while(i<51)
                           {
                           int *array=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
                             array[k]=rand()%i;                       // Inserting random elements
-                          res=quick(array,i);                        // varriable to store result 
+                          res=quick(array,i);                        // varriable to store result
 
-                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
-                          i*=10;
+                          printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                          fprintf(swaptr,"%d,%d\n",i,res.swap);
+                          fprintf(compptr,"%d,%d\n",i,res.comp);
+                          fprintf(exeptr,"%d,%f\n",i,res.time);
+                          i+=10;
                           free(array);
                           }
                           break;
                 case 'M':  i=10;
-                          while(i<10001)
+                          while(i<51)
                           {
                           int *array=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
                             array[k]=rand()%i;               // Inserting random elements
-                          res=mergeSort(array,0,i-1);            // varriable to store result 
-                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
-                          i*=10;
+                          res=mergeSort(array,0,i-1);            // varriable to store result
+                          printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                          fprintf(swaptr,"%d,%d\n",i,res.swap);
+                          fprintf(compptr,"%d,%d\n",i,res.comp);
+                          fprintf(exeptr,"%d,%f\n",i,res.time);
+                          i+=10;
                           free(array);
                           }
                            break;
                 case 'C':  i=10;
-                          while(i<10001)
+                          while(i<51)
                           {
                           int *array=(int*)malloc(i*sizeof(int)); // Creating array of size i
                           for(int k=0;k<i;k++)
                             array[k]=rand()%i;                 // Inserting random elements
-                          res=countingsort(array,i);             // varriable to store result 
-                          fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
-                          i*=10;
+                          res=countingsort(array,i);             // varriable to store result
+                          printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                          fprintf(swaptr,"%d,%d\n",i,res.swap);
+                          fprintf(compptr,"%d,%d\n",i,res.comp);
+                          fprintf(exeptr,"%d,%f\n",i,res.time);
+                          i+=10;
                           free(array);
                           }
                           break;
                 case 'S':  i=10;
-                          while(i<10001)
+                          while(i<51)
                           {
                             int *array=(int*)malloc(i*sizeof(int));   // Creating array of size i
                             for(int k=0;k<i;k++)
                               array[k]=rand()%i;               // Inserting random elements
-                            res=selectionsort(array,i);        // varriable to store result 
-                            fprintf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
-                            i*=10;
+                            res=selectionsort(array,i);        // varriable to store result
+                            printf(fptr,"For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
+                            fprintf(swaptr,"%d,%d\n",i,res.swap);
+                            fprintf(compptr,"%d,%d\n",i,res.comp);
+                            fprintf(exeptr,"%d,%f\n",i,res.time);
+                            i+=10;
                             free(array);
                           }
                            break;
@@ -133,10 +154,10 @@ int main()
             }
 
             break;
-    default: 
+    default:
       printf("Wrong Choice");
 
 
     }
 }
-    
+
