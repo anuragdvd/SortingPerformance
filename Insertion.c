@@ -29,7 +29,7 @@ struct val Insertion(int array[],int n)   //This will sort our array
     double time_spent = (double)(end - start)/(CLOCKS_PER_SEC); //here we are calc the time
     
     struct val res;
-    res.time=time_spent;res.swap=swa;res.com;
+    res.time=time_spent;res.swap=swa;res.comp=com;
     
     return res;
 }
