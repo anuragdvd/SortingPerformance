@@ -1,3 +1,7 @@
+# How to execute this file ?
+# 1. First download python from : https://www.python.org/downloads/
+# 2. Install matplotlib by command : pip install matplotlib
+
 import matplotlib.pyplot as pl
 import numpy as np
 import csv
