@@ -3,13 +3,13 @@
 #include "selectionhead.h"
 #include "val.h"
 
-int selc=0,sels=0;
+int selc=0,sels=0;  //selc -> compare in selection sort   sels -> swap in selection sort
 
-struct val selectionsort(int array[],int n)
+struct val selectionsort(int array[],int n)  //n is the number of elements in the array
 {
 
     int min,temp;
-    clock_t start = clock();
+    clock_t start = clock();  // clock start
     for(int i=0;i<n-1;i++){
         min = i;
         for(int j=i+1;j<n;j++){
@@ -25,9 +25,9 @@ struct val selectionsort(int array[],int n)
 
         }
     }
-    clock_t end = clock();
+    clock_t end = clock(); // clock ends
 
-    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);
+    double time_spent = (double)(end - start)/(CLOCKS_PER_SEC);  // calculation of CPU time  used
 
     struct val res;
     res.time=time_spent; res.swap=sels; res.comp=selc;
