@@ -23,14 +23,7 @@ int main(int argc, char **argv)
     FILE *fptr;
     fptr = fopen("out.txt","w");    // opening file to write output
     fclose(fptr);
-   // fptr = fopen("executionout.txt","w");    // opening file to write output
-   // fclose(fptr);
-   // fptr = fopen("compout.txt","w");    // opening file to write output
-   // fclose(fptr);
-   // FILE *swaptr,*compptr,*exeptr;
     fptr=fopen("out.txt","a");    // file to write swap data
-   // compptr=fopen("compout.txt","a");   // file to write compare data
-   // exeptr=fopen("executionout.txt","a");   // file to write execution data
     struct val res;
     int i;
     int *array;
@@ -71,7 +64,6 @@ int main(int argc, char **argv)
             }
             break;
     case 2:
-           // fflush(stdin);      // Clearing input buffer
             printf("Enter the sort you want to perform \n \n \n B -> Bubble sort \n \n Q -> Quicksort \n \n M -> MergeSort \n \n C -> CountSort \n \n S -> SelectionSort \n \n I -> InsertionSort \n");
             char che; scanf(" %c",&che);     // Asking user for choice
 
@@ -90,8 +82,6 @@ int main(int argc, char **argv)
                             struct val re=bubblesort(array,i);       // varriable to store result
                             printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d \n\n",i,re.time,re.swap,re.comp);
                             fprintf(fptr,"%d,%d,%d,%f\n",i,re.swap,re.comp,re.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                             i+=1000;
                             free(array);
                           }
@@ -107,8 +97,6 @@ int main(int argc, char **argv)
 
                           printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                             fprintf(fptr,"%d,%d,%d,%f\n",i,res.swap,res.comp,res.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                            i+=500;
                           free(array);
                           }
@@ -122,8 +110,6 @@ int main(int argc, char **argv)
                           res=mergeSort(array,0,i-1);            // varriable to store result
                           printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                            fprintf(fptr,"%d,%d,%d,%f\n",i,res.swap,res.comp,res.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                           i+=500;
                           free(array);
                           }
@@ -137,8 +123,6 @@ int main(int argc, char **argv)
                           res=countingsort(array,i);             // varriable to store result
                           printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                            fprintf(fptr,"%d,%d,%d,%f\n",i,res.swap,res.comp,res.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                           i+=1000;
                           free(array);
                           }
@@ -152,8 +136,6 @@ int main(int argc, char **argv)
                             res=selectionsort(array,i);        // varriable to store result
                             printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                              fprintf(fptr,"%d,%d,%d,%f\n",i,res.swap,res.comp,res.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                             i+=500;
                             free(array);
                           }
@@ -167,8 +149,6 @@ int main(int argc, char **argv)
                             res=Insertion(array,i);        // varriable to store result
                             printf("For %d elements \n Time taken for execution : %f \n Number of swaps made : %d \n Number of comparison made : %d\n\n",i,res.time,res.swap,res.comp);
                              fprintf(fptr,"%d,%d,%d,%f\n",i,res.swap,res.comp,res.time);
-                         //   fprintf(compptr,"%d,%d\n",i,re.comp);
-                          //  fprintf(exeptr,"%d,%f\n",i,re.time);
                             i+=500;
                             free(array);
                           }
@@ -183,4 +163,3 @@ int main(int argc, char **argv)
 
     }
 }
-
