@@ -6,7 +6,7 @@ echo "1 -> Array from keyboard"
 echo "2 -> Random Array"
 echo 
 read -p 'Select any type of input : ' val
-
+cd Sorce/
 flag=0
 case $val in 
     "1" )
