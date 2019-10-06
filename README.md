@@ -19,19 +19,19 @@ We will comparing the given sorting algorithm -
 Here we see the comparision of differernt sorting
 
 ## Bubble Sort
-![](src/Bubble.png)
+![](scr/Bubble.png)
 
 ## Merge Sort
-![](src/Merge.png)
+![](scr/Merge.png)
 
 ## Selection Sort
-![](src/Selection.png)
+![](scr/Selection.png)
 
 ## Insertion Sort
-![](src/Insertion.png)
+![](scr/Insertion.png)
 
 ## Quick Sort
-![](src/Quick.png)
+![](scr/Quick.png)
 
 ## Counting Sort
-![](src/Counting.png)
+![](scr/Counting.png)
