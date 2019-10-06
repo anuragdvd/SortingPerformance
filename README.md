@@ -14,3 +14,24 @@ We will comparing the given sorting algorithm -
 - Insertion Sort
 - Quick Sort
 - Counting Sort
+
+# Graphs 
+Here we see the comparision of differernt sorting
+
+## Bubble Sort
+![](src/Bubble.png)
+
+## Merge Sort
+![](src/Merge.png)
+
+## Selection Sort
+![](src/Selection.png)
+
+## Insertion Sort
+![](src/Insertion.png)
+
+## Quick Sort
+![](src/Quick.png)
+
+## Counting Sort
+![](src/Counting.png)
