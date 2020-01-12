@@ -35,3 +35,7 @@ Here we see the comparision of differernt sorting
 
 ## Counting Sort
 ![](scr/Counting.png)
+
+
+## For running the shell script 
+    run ./bash.sh
