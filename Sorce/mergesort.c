@@ -61,7 +61,7 @@ struct val mergeSort(int a[], int l, int r)
     start = clock();                                    //program starts to measure time from here
     if (l < r)
     {
-        int m = l+(r-l)/2;          
+        int m = (r+l)/2;          
         mergeSort(a, l, m);         // recursively calling mergesort on left array
         mergeSort(a, m+1, r);       // recursively calling mergesort on right array
         merge(a, l, m, r);          // merging both sorted arrays
